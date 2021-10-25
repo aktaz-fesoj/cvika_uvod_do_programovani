@@ -1,0 +1,1 @@
+print(int(input("Zadejte stupně: ")) + int(input("Zadejte minuty: "))/60 + int(input("Zadejte vteřiny: "))/3600)
