@@ -1,10 +1,11 @@
 print("1 = Převod ze stupňů, minut a vteřin na desetinné číslo")
 print("2 = Převod z desetinného čísla (stupňů) na stupně, minuty a vteřiny.")
+print("0 = Ukončení programu")
 
 while True:
     rozcesti = input()
     rozcesti = int (rozcesti)
-    if rozcesti < 1 or rozcesti > 2:
+    if rozcesti < 0 or rozcesti > 2:
         print("Toto číslo nemá svou funkci, zadej 1 nebo 2:")
         continue
     else:
@@ -78,3 +79,6 @@ elif rozcesti == 2:
 
 
     print(stupne , "° " , minuty , "´ " , vteriny , "´´")
+
+elif rozcesti == 0:
+    quit()
