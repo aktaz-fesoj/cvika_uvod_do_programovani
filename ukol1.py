@@ -48,7 +48,8 @@ mrizka_x = int(mrizka_x)
 
 # Vykreslení mřížky
 
-k = 25
+k = 25   #Konstanta určující velikost pole mřížky.
+
 speed(8)
 for _ in range(mrizka_x):
     for _ in range(mrizka_x):
