@@ -1,0 +1,48 @@
+xtompok@gmail.com
+
+github.com/xtompok/uvod-do-prg_21
+
+** umocnění
+
+// celočíselné dělení
+
+% dělení - vrátí zbytek
+
+quit() - konec
+
+Jupyter - nadstavba pro matematiku, praktické
+
+int, float, str, bool
+
++ na str spojí řetězce
+
+porovnání == , > , < , <= , >= , !=
+
+
+
+
+git init - vytvori v dane slozce repozitar
+git status - zobrazi stav repozitare
+git add - prida (zmeneny) soubor do veci ke commitu
+git commit - potvrdi aktuální sadu zmen
+git log - vypis zmen
+
+
+fstringy umožní seskupit do řetězce ruzne datove typy
+
+jmeno = input("Zadej jmeno:)
+vek = int(input(f"{jmeno}, jak se jmenuješ?")
+
+print(f"Ahoj {jmeno}, starý {vek} let!")
+
+
+levý alt +
+{ 123
+} 125
+\ 92
+
+\"blabla\"    - zachová uvozovky
+
+
+
+
