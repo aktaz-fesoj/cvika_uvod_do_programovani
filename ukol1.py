@@ -6,9 +6,10 @@ title("Pišqworky od Pepy verze 1.0")
 # Nastavení hráčů:
 hrac1 = textinput("Začátek hry!","Zadej jméno prvního hráče:")
 
+# Kontrola vstupu. Pokud uživatel potvrdí jméno bez zadání znaku, bude vyzván k opětovnému zadání:
 while True:
         
-    if hrac1 == "" :        # Kontrola vstupu. Pokud uživatel potvrdí jméno bez zadání znaku, bude vyzván opětovnému zadání.
+    if hrac1 == "" :        
         hrac1 = textinput("Chyba","Chyba, zadej platné jméno prvního hráče:")
         
         continue
@@ -17,9 +18,10 @@ while True:
 
 hrac2 = textinput("Začátek hry!","Zadej jméno druhého hráče:")
 
+# Kontrola vstupu. Pokud uživatel potvrdí jméno bez zadání znaku, či se bude jméno shodovat s prvním, bude vyzván k opětovnému zadání:
 while True:
         
-    if hrac2 == "" or hrac1 == hrac2 : # Kontrola vstupu. Pokud uživatel potvrdí jméno bez zadání znaku, či se bude jméno shodovat s prvním, bude vyzván opětovnému zadání.
+    if hrac2 == "" or hrac1 == hrac2 : 
         hrac2 = textinput("Chyba","Chyba, zadej platné jméno druhého hráče:")
         
         continue
@@ -27,12 +29,15 @@ while True:
         break
 
 # Nastavení mřížky:
-mrizka_x = numinput("Začátek hry!","Na čtverci o kolika polích byste chtěli hrát?")
+
+mrizka_x = numinput("Začátek hry!","Na mřížce o kolika polích byste chtěli hrát?")
 
 while True:
+
+    mrizka_kontrola  = mrizka_x % 1 #Zbytek z celočíselného dělení, v podmínce níže, kontoluji, jestli je zbytkem nula, jinak bylo zadáno desetinné číslo = neplatný rozměr mřížky.
         
-    if mrizka_x < 3 or mrizka_x > 20 :
-        mrizka_x = textinput("Chyba","Chyba, zadejte rozměr mezi 3 a 20:")
+    if mrizka_x < 3 or mrizka_x > 20 or mrizka_kontrola != 0:
+        mrizka_x = numinput("Chyba","Chyba, zadejte celočíselný rozměr mezi 3 a 20:")
         
         continue
     else:
@@ -95,7 +100,7 @@ for i in range(1, pocet_tahu):         # Cyklus zajišťující konec hry po zap
         else:
             break
 
-    x = Sour_x * k - k        # Jedno políčko má 10 pixelů, proto násobím. Odčítám pro to, aby kreslení začínalo v levém dolním rohu (pro 1,1 pixel 0,0)
+    x = Sour_x * k - k        # Jedno políčko má k pixelů, proto násobím. Odčítám pro to, aby kreslení začínalo v levém dolním rohu (pro 1,1 pixel 0,0)
     y = Sour_y * k - k
 
 
@@ -120,7 +125,7 @@ for i in range(1, pocet_tahu):         # Cyklus zajišťující konec hry po zap
 
     while True:
             
-        if Sour2_x < 1 or Sour2_x > mrizka_x or Sour2_x % 1 != 0 :      #Kontrola vstupu, prázdný vstup None je ošetřen defaultně
+        if Sour2_x < 1 or Sour2_x > mrizka_x or Sour2_x % 1 != 0 :      #Kontrola vstupu, prázdný vstup None je ošetřen samotnou fcí numinput
             Sour2_x = numinput(f"Tah {i} hráče {hrac2}","Chybná souřadnice x, zadej platnou:")
             
             continue
@@ -131,15 +136,16 @@ for i in range(1, pocet_tahu):         # Cyklus zajišťující konec hry po zap
 
     while True:
             
-        if Sour2_y < 1 or Sour2_y > mrizka_x or Sour2_y%1 != 0 :      #Kontrola vstupu, prázdný vstup None je ošetřen defaultně
+        if Sour2_y < 1 or Sour2_y > mrizka_x or Sour2_y%1 != 0 :      #Kontrola vstupu, prázdný vstup None je ošetřen samotnou fcí numinput
             Sour2_y = numinput(f"Tah {i} hráče {hrac2}","Chybná souřadnice y, zadej platnou:")   
                 
             continue
         else:
             break
 
-    x2 = Sour2_x * k - (k/2) # Násobení k <- jedno pole k pixelů, minus k/2 a minus 0,9k tak, aby kreslení kružnice začínalo v prostředku při dolním okraji pole (lehce odsazené o 0,1k px).
-    y2 = Sour2_y * k - (0.9*k)
+# Úprava souřadnic tak, aby kolečko bylo vykresleno uvnitř zvoleného pole mřížky:
+    x2 = Sour2_x * k - (k/2)    # Násobení k <- jedno pole má k pixelů. Minus (k/2) -> Dostane se doprostřed pole na x-ové ose
+    y2 = Sour2_y * k - (0.9*k)  # Násobení k <- jedno pole má k pixelů. Minus (0,9k) -> Dostane se do spodní části pole na y-ové ose
 
 
     # kreslení kolečka na zadaných souřadnicích:
@@ -151,14 +157,4 @@ for i in range(1, pocet_tahu):         # Cyklus zajišťující konec hry po zap
     circle(0.4*k,360)
 
 
-
-
-
-
-
-
-
-
-
-
-
+print(f"Děkuji, že jste hráli Pišqworky od Pepy, {hrac1} a {hrac2}! Gratuluji vítězi.")
