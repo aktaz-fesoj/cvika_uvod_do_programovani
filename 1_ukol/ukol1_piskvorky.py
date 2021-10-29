@@ -3,7 +3,7 @@ from turtle import exitonclick, forward, right, left, textinput, numinput, title
 VELIKOST_POLE = 25   #Konstanta určující velikost pole mřížky.
 
 
-# Název okna:
+# Název okna :
 title("Pišqworky od Pepy verze 1.1")
 
 # Nastavení hráčů:
