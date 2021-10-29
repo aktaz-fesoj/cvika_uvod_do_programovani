@@ -1,7 +1,7 @@
-from turtle import *
+from turtle import forward, right, left, textinput, numinput, title, speed, color, goto, penup, pendown, pensize, circle
 
 # Název okna:
-title("Pišqworky od Pepy verze 1.0")
+title("Pišqworky od Pepy verze 1.1")
 
 # Nastavení hráčů:
 hrac1 = textinput("Začátek hry!","Zadej jméno prvního hráče:")
@@ -50,7 +50,7 @@ mrizka_x = int(mrizka_x)
 
 k = 25   #Konstanta určující velikost pole mřížky.
 
-speed(8)
+speed(0)
 for _ in range(mrizka_x):
     for _ in range(mrizka_x):
         for _ in range(4):
@@ -137,7 +137,7 @@ for i in range(1, pocet_tahu):         # Cyklus zajišťující konec hry po zap
 
     while True:
             
-        if Sour2_y < 1 or Sour2_y > mrizka_x or Sour2_y%1 != 0 :      #Kontrola vstupu, prázdný vstup None je ošetřen samotnou fcí numinput
+        if Sour2_y < 1 or Sour2_y > mrizka_x or Sour2_y % 1 != 0 :      #Kontrola vstupu, prázdný vstup None je ošetřen samotnou fcí numinput
             Sour2_y = numinput(f"Tah {i} hráče {hrac2}","Chybná souřadnice y, zadej platnou:")   
                 
             continue
