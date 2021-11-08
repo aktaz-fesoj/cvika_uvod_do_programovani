@@ -44,5 +44,10 @@ levý alt +
 \"blabla\"    - zachová uvozovky
 
 
+Hledat Build in exceptions = seznam výjimek, lze se odkazovat i na nadrazenou
+
+
+
+
 
 
