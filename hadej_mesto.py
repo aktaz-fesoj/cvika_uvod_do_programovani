@@ -2,15 +2,16 @@
 import random
 
 mesto = random.choice(["Praha", "Brno", "Kolín", "Lípa", "Rumburk", "Jestřebí", "Pacov"])
-mesto = mesto.lower()
-mesto_list = list(mesto)
+mesto_list_kontrola = list(mesto)
+mesto_1 = mesto.lower()
+mesto_list = list(mesto_1)
 delka_slova = len(mesto_list)
 
 Hadane = []
 for i in range(delka_slova):
         Hadane.extend("_")
 
-while mesto_list != Hadane:
+while mesto_list_kontrola != Hadane:
     pismeno = input("Zadej písmeno:")
 
     for i in range(delka_slova):
