@@ -1,34 +1,45 @@
 #Program má seznam měst, jedno vybere, pak se ptá na písmenka -> šibenice
 import random
+import csv
 
-mesto = random.choice(["Praha", "Brno", "Kolín", "Lípa", "Rumburk", "Jestřebí", "Pacov"])
+seznam_okresnich_mest = []
+with open("okresni_mesta.csv", encoding = "utf-8") as mesta_csv:
+    reader = csv.reader(mesta_csv,)
+    for row in reader:
+      seznam_okresnich_mest.append(row[0])  
+
+mesto = random.choice(seznam_okresnich_mest)
 mesto_list_kontrola = list(mesto)
 mesto_1 = mesto.lower()
 mesto_list = list(mesto_1)
+
 delka_slova = len(mesto_list)
 
-Hadane = []
+hadane = []
 for i in range(delka_slova):
-        Hadane.extend("_")
+    hadane.extend("_")
 
-while mesto_list_kontrola != Hadane:
-    pismeno = input("Zadej písmeno:")
+for i in range(delka_slova):
+    if mesto_list[i] == " ":
+        hadane[i] = " "
+
+while mesto_list_kontrola != hadane:
+    pismeno = input("Zadej písmeno:").lower()
 
     for i in range(delka_slova):
-        if pismeno in mesto_list[i]:
+        if pismeno == mesto_list[i]:
             if i == 0:
-                Hadane[i] = pismeno.upper()
+                hadane[i] = pismeno.upper()
             else:
-                Hadane[i] = pismeno
+                hadane[i] = pismeno
+            if mesto_list[i-1] == " ":
+                mesto_list_kontrola[i] = pismeno.lower()
     if pismeno in mesto_list:
         print("Trefa!")
-        print (*Hadane, sep = " ")   #TOJEONO
+        print (*hadane, sep = " ")
     else:
         print("To není ono :(")
+        print (*hadane, sep = " ")
 
 print("Je to doma! Dokázal jsi uhodnout hledané město!")
-
-
-
-
-            
+exit()
