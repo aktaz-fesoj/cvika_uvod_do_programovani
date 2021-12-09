@@ -14,10 +14,10 @@ with open("vystup_json.json", "w") as f:
 
 #NAINSTALOVAL JSEM REQUESTS - pip install requests
 
-r = requests.get("www")
-r.status_code
-r.headers["content types"]
+#r = requests.get("www")
+#r.status_code
+#r.headers["content types"]
 
-r.text
+#r.text
 
-r.json
+#r.json
